@@ -59,7 +59,7 @@ async function runProjectQueueAsync(run:vscode.TestRun, projectQueue:vscode.Test
 			case "fail": run.failed(item, new vscode.TestMessage("failed")); break;
 			case "skip": run.skipped(item); break;
 		}
-		run.appendOutput(item.label + " result updated\r\n");
+		run.appendOutput(item.label + " result updated\r\n", undefined, item);
 	}
 	await vscode.window.showInformationMessage(`all tests updated for ${run.name}. click OK to end run ${run.name}`, "OK");	
 	run.end();
